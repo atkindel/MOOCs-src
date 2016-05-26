@@ -31,13 +31,13 @@ courses<-list(ResGeo="EarthSciences_ResGeo202_Spring2015",
               WomensHealth.v2="GlobalHealth_INT.WomensHealth_July2015"
            )
 
-set.dir<-"/home/bd/Dropbox/moocs/data/datastage.stanford.edu/researcher/EDUC_353A/exports_5-12/"
+set.dir<-"/Users/vpoluser/Code/irt/data/"
 
 tab<-dat<-list()
 for (course in unlist(courses)) {
     id.list<-L<-list()
     read.csv(paste(set.dir,"raws/",course,"_ProblemMetadata.csv",sep=""))->pm
-    setwd(paste(set.dir,"transforms/",course,sep=""))
+    setwd(paste(set.dir,"exports/",course,sep=""))
     list.files()->lf
     grep("export_summary.txt",lf)->index
     lf[-index]->lf #this is the list of files that will get processed
@@ -94,4 +94,4 @@ do.call("rbind",tab)->tab
 tab #N people, N>.5, N items
 
 #change below directory to suit yourself
-save(dat,file="/home/bd/Dropbox/moocs/data/proc/desc1.Rdata")
+save(dat,file="/Users/vpoluser/Code/irt/data/bd_processed.Rdata")
