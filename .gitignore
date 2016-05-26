@@ -1,10 +1,9 @@
 # R data if needed
-.Rproj.user
-.Rhistory
-.RData
+*.Rproj.user
+*.Rhistory
+*.RData
+*.Rproj
 
 # Jupyter peripherals and nohup log
 nohup.out
 .ipynb_checkpoints/
-
-

@@ -9,7 +9,7 @@ fun<-function(course,dat) {
     dat[[course]]->L
     infun<-function(resp) {
         ifelse(as.matrix(resp)=="correct",1,0)->resp
-        rowMeans(resp,na.rm=TRUE)
+        colMeans(resp,na.rm=TRUE)
     }
     infun(L$first_grade)->g1
     infun(L$second_grade)->g2
