@@ -93,7 +93,7 @@ for (course in unlist(courses)) {
     # Order matrix columns by item total order
     colnames(mtx) <- items_idx
     mtx <- mtx[,order(as.integer(colnames(mtx)))]
-    colnames(mtx) <- items$items_names
+    # colnames(mtx) <- items$items_names  # Set column names to platform ID
 
     # Order matrix rows alphabetically
     mtx <- mtx[order(row.names(mtx)),]
