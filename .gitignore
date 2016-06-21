@@ -8,5 +8,5 @@
 nohup.out
 .ipynb_checkpoints/
 
-# Symlinks
-exports
+# Data
+data/

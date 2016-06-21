@@ -40,7 +40,7 @@ courses <- list(ResGeo="EarthSciences_ResGeo202_Spring2015",
                 )
 
 # Directories where data lives
-home_wd <- "/Users/vpoluser/Code/irt/data/"
+home_wd <- "/Users/vpoluser/Code/MOOCs-src/"
 exports_dir <- "exports/"
 raws_dir <- "raws/"
 
