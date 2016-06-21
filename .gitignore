@@ -1,4 +1,4 @@
-# R data if needed
+# R data, if needed
 *.Rproj.user
 *.Rhistory
 *.RData
