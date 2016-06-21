@@ -3,7 +3,7 @@ load(file="/home/bd/Dropbox/moocs/data/proc/desc1.Rdata")
 
 #plot mean rfp versus median rt
 png("~/Downloads/moocs-time.png",units="in",height=9,width=7,res=100)
-par(mfrow=c(3,4),mgp=c(2,1,0),mar=c(3.3,3.3,2,1))
+par(mfrow=c(4,5),mgp=c(2,1,0),mar=c(3.3,3.3,2,1))
 fun<-function(course,dat,M=20) {
     dat[[course]]->L
     infun<-function(tfa) {    
@@ -36,7 +36,7 @@ dev.off()
 
 #plot mean rfp versus median rt
 png("~/Downloads/moocs-time-item.png",units="in",height=9,width=7,res=100)
-par(mfrow=c(3,4),mgp=c(2,1,0),mar=c(3.3,3.3,2,1))
+par(mfrow=c(4,5),mgp=c(2,1,0),mar=c(3.3,3.3,2,1))
 fun<-function(course,dat,M=20) {
     dat[[course]]->L
     infun<-function(tfa) {    

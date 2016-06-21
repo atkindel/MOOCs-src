@@ -9,7 +9,7 @@ courses<-list(ResGeo="EarthSciences_ResGeo202_Spring2015",
               OpenKnowl="Education_OpenKnowledge_Fall2014",
               Econ1="HumanitiesSciences_Econ-1_Summer2014",
               Compilers="Engineering_Compilers_Fall2014",
-              Econ1="HumanitiesSciences_Econ_1_Summer2015",
+              Econ1.v2="HumanitiesSciences_Econ_1_Summer2015",
               ChemE="Engineering_IntroChE_SelfStudy",
               EP="HumanitiesSciences_EP-101_Spring2015",
               Nano="Engineering_Nano_Summer2014",
@@ -57,7 +57,8 @@ for (course in unlist(courses)) {
         sapply(tmp,"[",2)->tmp
         strsplit(tmp,"_")->tmp
         sapply(tmp,"[",1)->tmp
-        match(pm[,1],tmp)->index #make sure the items are in the right order
+        # match(pm[,1],tmp)->index #make sure the items are in the right order
+        unlist(lapply(pm[,1], function(x) which(tmp %in% x))) -> index
         if (any(is.na(index))) {
             skip<-1 #if there are missing items, let's escape.
         }

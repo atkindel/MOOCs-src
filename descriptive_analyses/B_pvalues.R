@@ -2,7 +2,6 @@ load(file="/Users/vpoluser/Code/MOOCs-src/desc1.Rdata")
 
 ## To begin to understand this variation, we first describe variation in item characteristics (e.g. mean item response correctness) across MOOCs.
 
-
 png("~/Downloads/moocs1.png",units="in",height=18,width=14,res=100)
 par(mfrow=c(4,3),mgp=c(2,1,0),mar=c(3.3,3.3,2,1))
 fun<-function(course,dat) {

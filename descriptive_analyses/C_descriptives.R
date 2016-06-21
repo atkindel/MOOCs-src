@@ -38,7 +38,7 @@ dev.off()
 
 ##response time
 png("~/Downloads/moocs3.png",units="in",height=9,width=7,res=100)
-par(mfrow=c(3,4),mgp=c(2,1,0),mar=c(3.3,3.3,2,1))
+par(mfrow=c(4,5),mgp=c(2,1,0),mar=c(3.3,3.3,2,1))
 fun<-function(course,dat) {
     dat[[course]]->L
                                         #How much time people spend on items
@@ -56,8 +56,8 @@ fun<-function(course,dat) {
     }
     infun(L$time_to_first_attempt)->fp
     infun(L$time_to_last_attempt)->lp
-    density(lp)->dl
-    density(fp)->df
+    density(lp,na.rm=TRUE)->dl
+    density(fp,na.rm=TRUE)->df
     range(c(dl$y,df$y))->ran
     plot(df,col="gray",ylim=ran,xlim=c(0,15),xlab="minutes",ylab=" ",sub=" ",main="",yaxt="n",lwd=3)
     mtext(side=3,line=.2,nm)
