@@ -8,39 +8,36 @@ library(stringr)
 library(magrittr)
 
 # List of courses to read in
-courses<-list(ResGeo="EarthSciences_ResGeo202_Spring2015",
-              MathEdu.v2="Education_EDUC115-S_Spring2014",
-              StatLearn="HumanitiesandScience_StatLearning_Winter2015",
-              Econ1="HumanitiesSciences_Econ-1_Summer2014",
-              Econ1.v2="HumanitiesSciences_Econ_1_Summer2015",
-              EP="HumanitiesSciences_EP-101_Spring2015",
-              Anes.v2="Medicine_ANES205_Fall2014",
-              MedStat="Medicine_MedStats_Summer2014",
-              MedStat.v2="Medicine_MedStats._Summer2015",
-              DigDeeper="English_DiggingDeeper1_Winter2015",
-              SciWrite="Medicine_Sci-Write_Fall2014",
-              DigDeep2="English_diggingdeeper2_Spring2015",
-              SciWrite.v2="Medicine_SciWrite._Fall2015"
-              )
-
-# We keep track of available but unused courses
-unused_courses <- list(GlobalHealth="GlobalHealth_IWHHR_Summer2014",
-                       Compilers="Engineering_Compilers_Fall2014",
-                       MathEdu="Education_115SP_2015",
-                       Stocks="GSB_StocksBonds_SelfPaced",
-                       ChemE="Engineering_IntroChE_SelfStudy",
-                       Nano="Engineering_Nano_Summer2014",
-                       Anes="Medicine_ANES204_Fall2014",
-                       Networking="Engineering_Networking-SP_SelfPaced",
-                       OpenKnowl="Education_OpenKnowledge_Fall2014",
-                       QMSE="Engineering_QMSE01._Autumn2015",
-                       QMSE.v2="Engineering_QMSE-01_Fall2014",
-                       QMSE.v3="Engineering_QMSE-02_Winter2015",
-                       MolFound="Medicine_MolFoundations_SelfPaced",
-                       WomensHealth="GlobalHealth_IntWomensHealth_Jan2015",
-                       Haptics="SelfPaced_Haptics_2014",
-                       WomensHealth.v2="GlobalHealth_INT.WomensHealth_July2015"
-                       )
+courses <- list(ResGeo="EarthSciences_ResGeo202_Spring2015",
+                Compilers="Engineering_Compilers_Fall2014",
+                Stocks="GSB_StocksBonds_SelfPaced",
+                ChemE="Engineering_IntroChE_SelfStudy",
+                Nano="Engineering_Nano_Summer2014",
+                Networking="Engineering_Networking-SP_SelfPaced",
+                OpenKnowl="Education_OpenKnowledge_Fall2014",
+                StatLearn="HumanitiesandScience_StatLearning_Winter2015",
+                EP="HumanitiesSciences_EP-101_Spring2015",
+                MolFound="Medicine_MolFoundations_SelfPaced",
+                Haptics="SelfPaced_Haptics_2014",
+                MathEdu.v1="Education_115SP_2015",
+                MathEdu.v2="Education_EDUC115-S_Spring2014",
+                Econ1.v1="HumanitiesSciences_Econ-1_Summer2014",
+                Econ1.v2="HumanitiesSciences_Econ_1_Summer2015",
+                Anes.v1="Medicine_ANES204_Fall2014",
+                Anes.v2="Medicine_ANES205_Fall2014",
+                MedStat.v1="Medicine_MedStats_Summer2014",
+                MedStat.v2="Medicine_MedStats._Summer2015",
+                DigDeeper.v1="English_DiggingDeeper1_Winter2015",
+                DigDeeper.v2="English_diggingdeeper2_Spring2015",
+                SciWrite.v1="Medicine_Sci-Write_Fall2014",
+                SciWrite.v2="Medicine_SciWrite._Fall2015",
+                QMSE.v1="Engineering_QMSE01._Autumn2015",
+                QMSE.v2="Engineering_QMSE-01_Fall2014",
+                QMSE.v3="Engineering_QMSE-02_Winter2015",
+                WomensHealth.v1="GlobalHealth_IWHHR_Summer2014",
+                WomensHealth.v2="GlobalHealth_IntWomensHealth_Jan2015",
+                WomensHealth.v3="GlobalHealth_INT.WomensHealth_July2015"
+                )
 
 # Directories where data lives
 home_wd <- "/Users/vpoluser/Code/irt/data/"

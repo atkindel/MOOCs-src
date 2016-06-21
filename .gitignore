@@ -7,3 +7,6 @@
 # Jupyter peripherals and nohup log
 nohup.out
 .ipynb_checkpoints/
+
+# Symlinks
+exports
