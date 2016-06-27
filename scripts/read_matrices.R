@@ -13,7 +13,7 @@ courses <- list(ResGeo="EarthSciences_ResGeo202_Spring2015",
                 Stocks="GSB_StocksBonds_SelfPaced",
                 ChemE="Engineering_IntroChE_SelfStudy",
                 Nano="Engineering_Nano_Summer2014",
-                Networking="Engineering_Networking-SP_SelfPaced",
+                # Networking="Engineering_Networking-SP_SelfPaced",  # Bad
                 OpenKnowl="Education_OpenKnowledge_Fall2014",
                 StatLearn="HumanitiesandScience_StatLearning_Winter2015",
                 EP="HumanitiesSciences_EP-101_Spring2015",
@@ -39,10 +39,14 @@ courses <- list(ResGeo="EarthSciences_ResGeo202_Spring2015",
                 WomensHealth.v3="GlobalHealth_INT.WomensHealth_July2015"
                 )
 
+# Cutoff constants
+PROPORTION_ATTEMPTS = 0.5
+ELIGIBLE_SIZE = 300
+
 # Directories where data lives
 home_wd <- "/Users/vpoluser/Code/MOOCs-src/"
-exports_dir <- "exports/"
-raws_dir <- "raws/"
+exports_dir <- "data/exports/"
+raws_dir <- "data/raws/"
 
 course_tbls <- list()
 course_meta <- list()
@@ -105,7 +109,8 @@ for (course in unlist(courses)) {
     as.matrix() %>%
     ifelse(equals(., "none"), NA, .)  # Mark 'none' grade as missing
   item_prop <- rowSums(!is.na(last_grade)) / ncol(last_grade)
-  eligible <- item_prop >= 0.5
+  eligible <- item_prop >= PROPORTION_ATTEMPTS
+  if (sum(eligible) < ELIGIBLE_SIZE) next  # Skip this course if not enough learners in sample
   for (mtx_i in 1:length(matrices)) matrices[[mtx_i]][eligible,] -> matrices[[mtx_i]]
 
   # Add this course to data list
