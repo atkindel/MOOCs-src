@@ -9,9 +9,10 @@ library(magrittr)
 library(ggplot2)
 library(reshape2)
 library(scales)
+library(gridExtra)
 
 # Load data
-home_wd <- "/Users/vpoluser/Code/irt/data/"
+home_wd <- "/Users/vpoluser/Code/MOOCs-src/data/"
 load(str_c(home_wd, "course_tables.Rdata"))
 
 # Define plot palette-- using ggplot defaults mostly
@@ -79,26 +80,26 @@ for (course in names(course_tbls)) {
 
     # Plot as stacked bar
     ggplot(aes(x=Var1, y=value, fill=Var2)) +
-      #geom_bar(position="fill", stat="identity") +
+      # geom_bar(position="fill", stat="identity") +
       geom_bar(stat="identity") +
       coord_flip() +
 
       # Format/label axes and legend
-      #scale_y_continuous(breaks=seq(0.0, 1.0, by=0.1), labels=scales::percent, expand=c(0,0)) +
+      # scale_y_continuous(breaks=seq(0.0, 1.0, by=0.1), labels=scales::percent, expand=c(0,0)) +
       scale_y_continuous(expand=c(0,0)) +
       scale_x_continuous(trans="reverse", breaks=c(1:as.numeric(as.character(course_meta$items[course]))), expand=c(0,0)) +
       scale_fill_manual(values=palette, name="attempt", labels=c("1", "2", "3", "4", "5", "Inc.")) +
       xlab("Item") +
       ylab("N correct") +
       theme(axis.ticks=element_blank(), legend.position="bottom", axis.text=element_text(size=8)) +
-      labs(title=course) +
+      labs(title=course) ->  # +
 
       # Draw visual guidelines at 10% interval
-      geom_hline(linetype="dotted", yintercept=seq(0.0, 1.0, by=0.1)) ->
+      # geom_hline(linetype="dotted", yintercept=seq(0.0, 1.0, by=0.1)) ->
 
     # Save
     plots[[course]]
 }
 
 # Draw plots to outfile
-ggsave("~/Downloads/totals.pdf", marrangeGrob(grobs=plots, nrow=1, ncol=1, top=NULL, right=" "), width=8.5, height=11, units="in")
+ggsave(str_c(home_wd, "totals.pdf"), marrangeGrob(grobs=plots, nrow=1, ncol=1, top=NULL, right=" "), width=8.5, height=11, units="in")

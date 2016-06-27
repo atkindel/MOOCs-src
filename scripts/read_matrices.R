@@ -123,5 +123,5 @@ course_meta <- do.call("rbind", course_meta)
 colnames(course_meta) <- c("course", "total", "cmpl > 0.5", "items")
 
 # Finally, save data and clean up environment
-save(course_tbls, course_meta, file=str_c(home_wd, "course_tables.Rdata"))
+save(course_tbls, course_meta, file=str_c(home_wd, "data/", "course_tables.Rdata"))
 rm(list=ls())
