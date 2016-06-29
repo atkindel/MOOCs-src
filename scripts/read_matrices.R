@@ -99,6 +99,9 @@ for (course in unlist(courses)) {
     # Order matrix rows alphabetically
     mtx <- mtx[order(row.names(mtx)),]
 
+    # Dedupe columns (effectively collapses multi-part questions into one column)
+    mtx <- mtx[!duplicated(as.list(mtx))]
+
     # Add to list of matrices for this course
     matrices[[sub(".csv", "", mtx_file)]] <- mtx
   }
